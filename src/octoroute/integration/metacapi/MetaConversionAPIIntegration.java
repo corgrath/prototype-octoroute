@@ -14,6 +14,7 @@ import java.util.Map;
  * Meta Conversions API
  *
  * @see "https://developers.facebook.com/docs/marketing-api/conversions-api/"
+ * @see "Payload Helper - https://developers.facebook.com/docs/marketing-api/conversions-api/payload-helper"
  */
 
 public class MetaConversionAPIIntegration {
@@ -21,20 +22,21 @@ public class MetaConversionAPIIntegration {
     private final LogServiceInterface logService;
     private final ActionBroker actionBroker;
     private final String pixelID;
+    private final String accessToken;
 
     public MetaConversionAPIIntegration(
             LogServiceInterface logService,
             ActionBroker actionBroker,
-            String pixelID
+            String pixelID,
+            String accessToken
     ) {
         this.logService = logService;
         this.actionBroker = actionBroker;
         this.pixelID = pixelID;
+        this.accessToken = accessToken;
     }
 
     public void sendEvent(String eventName) throws OctorouteException {
-
-        String accessToken = "sandra123";
 
         RequestAction scheduledRequest = new RequestAction() {
 
@@ -47,13 +49,12 @@ public class MetaConversionAPIIntegration {
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
                 headers.put("Content-Type", "application/json");
-//                headers.put("Api-Key", apiKey);
                 return headers;
             }
 
             @Override
             public String getURL() {
-                return "https://graph.facebook.com/v21.0/" + pixelID + "/events?access_token=" + URLUtil.encode(accessToken);
+                return "https://graph.facebook.com/v22.0/" + pixelID + "/events?access_token=" + URLUtil.encode(accessToken);
             }
 
             @Override
@@ -65,11 +66,11 @@ public class MetaConversionAPIIntegration {
 //                Map<String, Object> payload = new HashMap<>();
 //                return JSONUtil.toStringPretty(payload);
 
-                return """
+                return String.format("""
                         data=[
                                {
-                          "event_name": "Purchase",
-                          "event_time": 1674000041,
+                          "event_name": "%s",
+                          "event_time": %d,
                           "user_data": {
                             "em": [
                               "309a0a5c3e211326ae75ca18196d301a9bdbd1a882a4d2569511033da23f0abd"
@@ -87,10 +88,10 @@ public class MetaConversionAPIIntegration {
                               "quantity": 1
                             }]
                           },
-                          "action_source": "physical_store"
+                          "action_source": "website"
                         }
                         ]
-                        """;
+                        """, eventName, (System.currentTimeMillis() / 1000));
             }
 
         };
