@@ -2,7 +2,7 @@ package octoroute;
 
 import octoroute.action.ImmediateActionBroker;
 import octoroute.exceptions.OctorouteException;
-import octoroute.integration.metacapi.MetaConversionAPIIntegration;
+import octoroute.integration.google.mp.MeasurementProtocolIntegration;
 import octoroute.network.NetworkService;
 import octoroute.network.ScheduledRequestQueue;
 import octoroute.network.ScheduledRequestWorker;
@@ -49,16 +49,25 @@ public class Main {
 //        Map<String, Object> eventData = new HashMap<>();
 //        iterableIntegration.trackEvent("test@test.com", "Debug.Event", eventData);
 
-        String pixelID = secretsService.get("meta.pixelid");
-        String apiKey = secretsService.get("meta.key");
-        MetaConversionAPIIntegration metaConversionAPIIntegration = new MetaConversionAPIIntegration(
+//        String pixelID = secretsService.get("meta.pixelid");
+//        String apiKey = secretsService.get("meta.key");
+//        MetaConversionAPIIntegration metaConversionAPIIntegration = new MetaConversionAPIIntegration(
+//                logService,
+//                immediateActionBroker,
+//                pixelID,
+//                apiKey
+//        );
+//        metaConversionAPIIntegration.sendEvent("Custom.EventApril2025");
+
+        String pixelID = secretsService.get("ga4.measurementid");
+        String secret = secretsService.get("ga4.secret");
+        MeasurementProtocolIntegration measurementProtocolIntegration = new MeasurementProtocolIntegration(
                 logService,
                 immediateActionBroker,
                 pixelID,
-                apiKey
+                secret
         );
-
-        metaConversionAPIIntegration.sendEvent("Custom.EventApril2025");
+        measurementProtocolIntegration.sendEvent("guide_started");
 
     }
 

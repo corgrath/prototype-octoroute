@@ -75,19 +75,22 @@ public class NetworkService implements NetworkServiceInterface {
 
             Response response = new Response(httpResponseDoNotUse);
 
+            int statusCode = response.getStatusCode();
+            StatusLine statusLine = response.getStatusLine();
+            String responseBody = response.getBodyAsString();
+
+            this.logService.log(NetworkService.class.getSimpleName(), "Response (" + statusCode + ":" + statusLine + "): " + response);
+            this.logService.log(NetworkService.class.getSimpleName(), "responseBody: " + responseBody);
+
+            String requestURI = request.getURI().toString();
             List<Integer> successCodes = List.of(
                     NetworkService.STATUS_200_OK,
                     NetworkService.STATUS_202_ACCEPTED,
                     NetworkService.STATUS_204_NO_CONTENT
             );
-
-            String requestURI = request.getURI().toString();
             if (!successCodes.contains(response.getStatusCode())) {
-                System.out.println(response);
-                String responseBody = response.getBodyAsString();
                 System.out.println(responseBody);
-                int statusCode = response.getStatusCode();
-                StatusLine statusLine = response.getStatusLine();
+
 //                StatusLine statusLine = httpResponse.getStatusLine();
                 throw new OctorouteException("Request to " + requestURI + " failed with with status " + statusCode + ":" + statusLine + ":" + responseBody, Map.of(
                         "status", Integer.toString(response.getStatusCode())

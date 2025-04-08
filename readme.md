@@ -29,6 +29,11 @@ A lightweight headless, developer-first, general-purpose pipeline system written
 
  - Iterable - iterable.com
    - Update user by ID
+   - Send events
+ - Meta Conversion API
+   - Send events
+ - Google Measurement Protocol
+   - Send events
 
 
 
