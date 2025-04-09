@@ -1,6 +1,6 @@
 # Octoroute
 
-A lightweight headless, developer-first, general-purpose pipeline system written in Java.
+A lightweight, headless, developer-first, general-purpose pipeline system written in Java.
 
 
 
@@ -14,6 +14,12 @@ A lightweight headless, developer-first, general-purpose pipeline system written
 
  - Built in webserver
  - Lambda function
+
+
+
+## Examples
+
+ - [Example code](https://github.com/corgrath/prototype-octoroute/blob/master/src/octoroute/Main.java)
 
 
 
