@@ -1,4 +1,4 @@
-package octoroute.utils;
+package octoroute.util;
 
 import octoroute.exceptions.OctorouteException;
 import org.apache.commons.io.FileUtils;

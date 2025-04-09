@@ -1,4 +1,4 @@
-package octoroute.util.URLUtil;
+package octoroute.util;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;

@@ -1,4 +1,4 @@
-package octoroute.utils;
+package octoroute.util;
 
 /**
  * Represents an UUID (Universally Unique Identifier);

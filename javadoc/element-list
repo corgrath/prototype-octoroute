@@ -8,5 +8,4 @@ octoroute.integration.metacapi
 octoroute.network
 octoroute.secret
 octoroute.services
-octoroute.util.URLUtil
-octoroute.utils
+octoroute.util

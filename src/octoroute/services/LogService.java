@@ -1,6 +1,6 @@
 package octoroute.services;
 
-import octoroute.utils.DateUtil;
+import octoroute.util.DateUtil;
 
 import java.time.LocalDateTime;
 

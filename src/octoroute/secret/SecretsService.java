@@ -2,8 +2,8 @@ package octoroute.secret;
 
 import octoroute.exceptions.OctorouteException;
 import octoroute.services.LogServiceInterface;
-import octoroute.utils.FileUtil;
-import octoroute.utils.JSONUtil;
+import octoroute.util.FileUtil;
+import octoroute.util.JSONUtil;
 
 import java.util.Map;
 

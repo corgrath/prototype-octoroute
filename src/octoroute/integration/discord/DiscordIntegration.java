@@ -5,7 +5,7 @@ import octoroute.action.RequestAction;
 import octoroute.exceptions.OctorouteException;
 import octoroute.network.HTTPRequestMethod;
 import octoroute.services.LogServiceInterface;
-import octoroute.utils.JSONUtil;
+import octoroute.util.JSONUtil;
 
 import java.util.HashMap;
 import java.util.Map;

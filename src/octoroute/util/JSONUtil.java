@@ -1,4 +1,4 @@
-package octoroute.utils;
+package octoroute.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

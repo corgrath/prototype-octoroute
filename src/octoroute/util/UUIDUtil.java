@@ -1,4 +1,4 @@
-package octoroute.utils;
+package octoroute.util;
 
 public abstract class UUIDUtil {
 
