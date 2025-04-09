@@ -27,13 +27,15 @@ A lightweight headless, developer-first, general-purpose pipeline system written
 
 ## Integrations
 
- - Iterable - iterable.com
+ - Iterable
    - Update user by ID
    - Send events
  - Meta Conversion API
    - Send events
  - Google Measurement Protocol
    - Send events
+ - Discord
+   - Send simple message
 
 
 
@@ -54,8 +56,8 @@ Webserver (Scheduled Worker Broker) Based
 
 ```mermaid
 flowchart TD
-    external["Third Party Service (api.iterable.com)"]
-    integration["An Integration Service (For example Iterable)"]
+   external["Third Party API"]
+    integration["Integration Service"]
     webserver["Built-in Webserver"]
     queue["Queue (Thread-safe queue of Scheduled Requests)"]
     worker["Worker (that runs in its own thread)"]
@@ -83,9 +85,9 @@ Lambda (Immediate Broker) Based
 
 ```mermaid
 flowchart TD
-    external["Third Party Service (api.iterable.com)"]
+    external["Third Party API"]
     broker["Immediate Broker"]
-    integration["An Integration Service (For example Iterable)"]
+    integration["Integration Service"]
     gateway["Lambda Gateway"]
     network_service["Network Service"]
 
@@ -116,4 +118,13 @@ flowchart TD
 
 ## License
 
- - TBD
+TLDR:
+
+ - ✅ You can use, modify, and share this software freely
+ - ✅ Companies and individuals can use it internally, even for commercial work
+ - ✅ Contributions are welcome and may be re-licensed as part of the project improvements
+ - 🚫 You cannot use it to build or offer a competing product or service
+ - 🚫 You cannot wrap it into a paid platform, SaaS, or resale tool without a commercial license
+ - ⚠️ This software is provided as-is, with no warranty or liability
+ 
+[Read the full license here](LICENSE.md)

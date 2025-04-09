@@ -26,12 +26,12 @@ public class MeasurementProtocolIntegration {
     public MeasurementProtocolIntegration(
             LogServiceInterface logService,
             ActionBroker actionBroker,
-            String measurementIDmeasurementID,
+            String measurementID,
             String secret
     ) {
         this.logService = logService;
         this.actionBroker = actionBroker;
-        this.measurementID = measurement_id;
+        this.measurementID = measurementID;
         this.secret = secret;
     }
 

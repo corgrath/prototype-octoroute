@@ -2,7 +2,6 @@ package octoroute;
 
 import octoroute.action.ImmediateActionBroker;
 import octoroute.exceptions.OctorouteException;
-import octoroute.integration.google.mp.MeasurementProtocolIntegration;
 import octoroute.network.NetworkService;
 import octoroute.network.ScheduledRequestQueue;
 import octoroute.network.ScheduledRequestWorker;
@@ -59,15 +58,21 @@ public class Main {
 //        );
 //        metaConversionAPIIntegration.sendEvent("Custom.EventApril2025");
 
-        String pixelID = secretsService.get("ga4.measurementid");
-        String secret = secretsService.get("ga4.secret");
-        MeasurementProtocolIntegration measurementProtocolIntegration = new MeasurementProtocolIntegration(
-                logService,
-                immediateActionBroker,
-                pixelID,
-                secret
-        );
-        measurementProtocolIntegration.sendEvent("guide_started");
+//        String pixelID = secretsService.get("ga4.measurementid");
+//        String secret = secretsService.get("ga4.secret");
+//        MeasurementProtocolIntegration measurementProtocolIntegration = new MeasurementProtocolIntegration(
+//                logService,
+//                immediateActionBroker,
+//                pixelID,
+//                secret
+//        );
+//        measurementProtocolIntegration.sendEvent("guide_started");
+
+//        DiscordIntegration discordIntegration = new DiscordIntegration(
+//                logService,
+//                immediateActionBroker
+//        );
+//        discordIntegration.sendSimpleMessage("12345", "12345", "test message");
 
     }
 
